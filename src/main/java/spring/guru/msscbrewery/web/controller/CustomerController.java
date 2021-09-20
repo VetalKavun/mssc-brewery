@@ -34,9 +34,7 @@ public class CustomerController {
     @PutMapping("/{customerId}")
     public ResponseEntity updateCustomer(@PathVariable UUID id, @RequestBody CustomerDto customerDto) {
         CustomerDto updatedCustomer = customerService.updateCustomer(id, customerDto);
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Location", "api/v1/customer/" + updatedCustomer.getId().toString());
-        return new ResponseEntity(httpHeaders, HttpStatus.NO_CONTENT);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping("/{customerId}")
