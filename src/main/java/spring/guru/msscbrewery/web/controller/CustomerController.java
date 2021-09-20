@@ -32,7 +32,7 @@ public class CustomerController {
     }
 
     @PutMapping("/{customerId}")
-    public ResponseEntity updateCustomer(@PathVariable UUID id, @RequestBody CustomerDto customerDto) {
+    public ResponseEntity updateCustomer(@PathVariable("customerId") UUID id, @RequestBody CustomerDto customerDto) {
         CustomerDto updatedCustomer = customerService.updateCustomer(id, customerDto);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
